@@ -12,8 +12,6 @@ app.set("views", viewsPath);
 app.get("/", function(req, res) {
   if (req.accepts("html")) {
     res.render("index", { ip: req.ip });
-  } else if (req.accepts("json")) {
-    res.json({ ip: req.ip });
   } else {
     res.type("text");
     res.send(req.ip);
