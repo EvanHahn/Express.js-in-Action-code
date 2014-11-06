@@ -23,7 +23,8 @@ describe("html response", function() {
   it("returns your IP address", function(done) {
     request
       .expect(function(res) {
-        var $ = cheerio.load(res.text);
+        var htmlResponse = res.text;
+        var $ = cheerio.load(htmlResponse);
         var ip = $(".ip-address").html().trim();
         if (!isIp(ip)) {
           throw new Error("IP address not found");
