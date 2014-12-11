@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "^4.10.4"
+  }
+}
