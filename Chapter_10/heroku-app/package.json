@@ -3,6 +3,7 @@
   "scripts": {
     "start": "node app"
   },
+  "main": "app",
   "dependencies": {
     "express": "^4.10.4",
     "forever": "^0.13.0"
