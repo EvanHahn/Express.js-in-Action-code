@@ -1,8 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "node app",
-    "production": "forever app.js"
+    "start": "node app"
   },
   "dependencies": {
     "express": "^4.10.4",
