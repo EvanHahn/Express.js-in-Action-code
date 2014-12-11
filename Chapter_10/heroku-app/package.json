@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "node app",
+    "production": "forever app.js"
+  },
+  "dependencies": {
+    "express": "^4.10.5",
+    "forever": "^0.13.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
