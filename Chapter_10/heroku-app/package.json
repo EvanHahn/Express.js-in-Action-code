@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node index"
   },
-  "main": "app",
+  "main": "index",
   "dependencies": {
     "express": "^4.10.4",
     "forever": "^0.13.0"
