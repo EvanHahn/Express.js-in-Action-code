@@ -1,0 +1,13 @@
+{
+  "name": "temperature-by-zip",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "4.3.x",
+    "reckon": "0.0.x",
+    "zippity-do-dah": "0.0.x",
+    "ejs": "1.0.x"
+  }
+}
