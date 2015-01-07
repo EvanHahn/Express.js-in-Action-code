@@ -1,8 +1,21 @@
 $script = <<SCRIPT
+
+# Install Node.js 0.10
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.22.0/install.sh | bash
 source ~/.nvm/nvm.sh
 nvm install 0.10
 nvm alias default 0.10
+
+# Install Express generator
+npm install -g express-generator
+
+# Install and start MongoDB
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+sudo service mongod start
+
 SCRIPT
 
 VAGRANTFILE_API_VERSION = "2"
