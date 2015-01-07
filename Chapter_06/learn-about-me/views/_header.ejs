@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<title>Learn About Me</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap
+[CA]/3.2.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Learn About Me</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if (currentUser) { %>
+        <li>
+          <a href="/edit">
+            Hello, <%= currentUser.name() %>
+          </a>
+        </li>
+        <li><a href="/logout">Log out</a></li>
+      <% } else { %>
+        <li><a href="/login">Log in</a></li>
+        <li><a href="/signup">Sign up</a></li>
+      <% } %>
+    </ul>
+
+  </div>
+
+</div>
+
+<div class="container">
+
+  <% errors.forEach(function(error) { %>
+    <div class="alert alert-danger" role="alert">
+      <%= error %>
+    </div>
+  <% }) %>
+
+  <% infos.forEach(function(info) { %>
+    <div class="alert alert-info" role="alert">
+      <%= info %>
+    </div>
+  <% }) %>
