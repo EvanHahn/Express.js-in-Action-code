@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "forever app.js"
+  },
+  "dependencies": {
+    "express": "^4.11.1",
+    "forever": "^0.13.0"
+  }
+}
