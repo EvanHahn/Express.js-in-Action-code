@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "body-parser": "^1.10.2",
+    "csurf": "^1.6.5",
+    "ejs": "^2.2.3",
+    "express": "^4.11.1",
+    "express-session": "^1.10.1"
+  }
+}
