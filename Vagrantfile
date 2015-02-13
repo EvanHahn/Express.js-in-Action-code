@@ -1,10 +1,10 @@
 $script = <<SCRIPT
 
-# Install Node.js 0.10
+# Install Node.js 0.12
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.22.0/install.sh | bash
 source ~/.nvm/nvm.sh
-nvm install 0.10
-nvm alias default 0.10
+nvm install 0.12
+nvm alias default 0.12
 
 # Install Express generator
 npm install -g express-generator
