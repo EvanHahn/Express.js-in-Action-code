@@ -1,12 +1,10 @@
 var express = require("express");
+var morgan = require("morgan");
 var path = require("path");
 
 var app = express();
 
-app.use(function(req, res, next) {
-  console.log(new Date(), req.method, req.url);
-  next();
-});
+app.use(morgan("short"));
 
 app.use(function(req, res, next) {
   var now = new Date();
