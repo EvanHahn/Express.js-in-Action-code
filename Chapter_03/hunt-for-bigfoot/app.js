@@ -1,5 +1,6 @@
 var express = require("express");
 var morgan = require("morgan");
+var basicAuth = require("basic-auth-connect");
 var path = require("path");
 
 var app = express();
@@ -15,6 +16,8 @@ app.use(function(req, res, next) {
     res.send("Bigfoot not found!");
   }
 });
+
+app.use(basicAuth("bigfoot", "yeti1"));
 
 app.use(function(req, res) {
   var bigfootImagePath = path.resolve("bigfoot.jpg");
