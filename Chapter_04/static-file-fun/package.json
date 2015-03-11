@@ -3,7 +3,7 @@
   "scripts": {
     "start": "node app"
   },
-  "devDependencies": {
-    "express": "^4.11.2"
+  "dependencies": {
+    "express": "^4.12.2"
   }
 }
