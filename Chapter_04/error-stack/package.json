@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "devDependencies": {
+    "express": "^4.11.2"
+  },
+  "dependencies": {
+    "morgan": "^1.5.1"
+  }
+}
