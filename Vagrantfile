@@ -1,5 +1,8 @@
 $script = <<SCRIPT
 
+# Install Node dependencies
+sudo apt-get install build-essential libssl-dev -y
+
 # Install Node.js 0.12
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
 source ~/.nvm/nvm.sh
