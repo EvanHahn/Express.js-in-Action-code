@@ -2,7 +2,7 @@ var http = require("http");
 var path = require("path");
 var express = require("express");
 var logger = require("morgan");
-var formBody = require("body/form");
+var bodyParser = require("body-parser");
 
 var app = express();
 
@@ -14,6 +14,8 @@ app.use(logger("dev"));
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.get("/", function(req, res) {
   res.render("index");
 });
@@ -23,22 +25,16 @@ app.get("/new-entry", function(req, res) {
 });
 
 app.post("/new-entry", function(req, res) {
-  formBody(req, {}, function(err, entry) {
-    if (err) {
-      res.status(500).send("Internal server error.");
-      return;
-    }
-    if (!entry.title || !entry.body) {
-      res.status(400).send("Entries must have a title and a body.");
-      return;
-    }
-    entries.push({
-      title: entry.title,
-      body: entry.body,
-      published: new Date()
-    });
-    res.redirect("/");
+  if (!req.body.title || !req.body.body) {
+    res.status(400).send("Entries must have a title and a body.");
+    return;
+  }
+  entries.push({
+    title: req.body.title,
+    body: req.body.body,
+    published: new Date()
   });
+  res.redirect("/");
 });
 
 app.use(function(req, res) {
