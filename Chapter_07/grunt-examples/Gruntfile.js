@@ -9,10 +9,17 @@ module.exports = function(grunt) {
           "tmp/serve/main.css": "my_css/main.less"
         }
       }
+    },
+    browserify: {
+      client: {
+        src: ["my_javascripts/main.js"],
+        dest: "tmp/serve/main.js"
+      }
     }
   });
 
   grunt.loadNpmTasks("grunt-contrib-less");
+  grunt.loadNpmTasks("grunt-browserify");
 
-  grunt.registerTask("default", ["less"]);
+  grunt.registerTask("default", ["browserify", "less"]);
 };

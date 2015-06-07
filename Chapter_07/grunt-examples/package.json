@@ -8,6 +8,8 @@
     "grunt-cli": "^0.1.13"
   },
   "dependencies": {
-    "grunt-contrib-less": "^1.0.1"
+    "grunt-browserify": "^3.8.0",
+    "grunt-contrib-less": "^1.0.1",
+    "random-string": "^0.1.2"
   }
 }
