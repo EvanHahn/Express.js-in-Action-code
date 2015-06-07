@@ -22,12 +22,23 @@ module.exports = function(grunt) {
           "tmp/serve/main.min.js": ["tmp/serve/main.js"]
         }
       }
+    },
+    watch: {
+      scripts: {
+        files: ["**/*.js"],
+        tasks: ["browserify"]
+      },
+      styles: {
+        files: ["**/*.less"],
+        tasks: ["less"]
+      }
     }
   });
 
   grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-browserify");
   grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks("grunt-contrib-watch");
 
   grunt.registerTask("default", ["browserify", "less", "uglify"]);
 };
