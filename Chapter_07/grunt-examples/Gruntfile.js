@@ -15,11 +15,19 @@ module.exports = function(grunt) {
         src: ["my_javascripts/main.js"],
         dest: "tmp/serve/main.js"
       }
+    },
+    uglify: {
+      myClient: {
+        files: {
+          "tmp/serve/main.min.js": ["tmp/serve/main.js"]
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-browserify");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
 
-  grunt.registerTask("default", ["browserify", "less"]);
+  grunt.registerTask("default", ["browserify", "less", "uglify"]);
 };
