@@ -1,10 +1,10 @@
 var path = require("path");
 var express = require("express");
 var zipdb = require("zippity-do-dah");
-var Reckon = require("reckon");
+var ForecastIo = require("forecastio");
 
 var app = express();
-var weather = new Reckon({ apiKey: "YOUR FORECAST.IO API KEY HERE" });
+var weather = new ForecastIo("YOUR FORECAST.IO API KEY HERE");
 
 app.use(express.static(path.resolve(__dirname, "public")));
 
@@ -20,11 +20,18 @@ app.get(/^\/(\d{5})$/, function(req, res, next) {
   var location = zipdb.zipcode(zipcode);
   if (!location.zipcode) {
     next();
+    return;
   }
-  weather.get({
-    lat: location.latitude,
-    lon: location.longitude
-  }, function(data) {
+
+  var latitude = location.latitude;
+  var longitude = location.longitude;
+
+  weather.forecast(latitude, longitude, function(err, data) {
+    if (err) {
+      next();
+      return;
+    }
+
     res.json({
       zipcode: zipcode,
       temperature: data.currently.temperature
