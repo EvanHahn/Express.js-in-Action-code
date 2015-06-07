@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "start": "node app",
     "grunt": "grunt"
   },
   "devDependencies": {
