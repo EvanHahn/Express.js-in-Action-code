@@ -1,3 +1,3 @@
-var randomString = require('random-string');
+var randomString = require("random-string");
 
 console.log(randomString({ length: 10 }));
