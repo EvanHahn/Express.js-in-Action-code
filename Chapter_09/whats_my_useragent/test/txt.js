@@ -1,7 +1,6 @@
 var app = require("../app");
 
 var supertest = require("supertest");
-var isIp = require("is-ip");
 
 describe("plain text response", function() {
 
@@ -9,6 +8,7 @@ describe("plain text response", function() {
   beforeEach(function() {
     request = supertest(app)
       .get("/")
+      .set("User-Agent", "a cool browser")
       .set("Accept", "text/plain");
   });
 
@@ -19,11 +19,11 @@ describe("plain text response", function() {
       .end(done);
   });
 
-  it("returns your IP address", function(done) {
+  it("returns your User Agent", function(done) {
     request
       .expect(function(res) {
-        if (!isIp(res.text)) {
-          throw new Error("Response is not an IP address");
+        if (res.text !== "a cool browser") {
+          throw new Error("Response does not contain User Agent");
         }
       })
       .end(done);

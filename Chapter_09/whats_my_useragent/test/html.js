@@ -1,7 +1,6 @@
 var app = require("../app");
 
 var supertest = require("supertest");
-var isIp = require("is-ip");
 var cheerio = require("cheerio");
 
 describe("html response", function() {
@@ -10,6 +9,7 @@ describe("html response", function() {
   beforeEach(function() {
     request = supertest(app)
       .get("/")
+      .set("User-Agent", "a cool browser")
       .set("Accept", "text/html");
   });
 
@@ -20,14 +20,14 @@ describe("html response", function() {
       .end(done);
   });
 
-  it("returns your IP address", function(done) {
+  it("returns your User Agent", function(done) {
     request
       .expect(function(res) {
         var htmlResponse = res.text;
         var $ = cheerio.load(htmlResponse);
-        var ip = $(".ip-address").html().trim();
-        if (!isIp(ip)) {
-          throw new Error("IP address not found");
+        var userAgent = $(".user-agent").html().trim();
+        if (userAgent !== "a cool browser") {
+          throw new Error("User Agent not found (found: " + userAgent + ")");
         }
       })
       .end(done);

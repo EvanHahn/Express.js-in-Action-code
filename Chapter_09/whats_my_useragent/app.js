@@ -10,11 +10,13 @@ app.set("view engine", "ejs");
 app.set("views", viewsPath);
 
 app.get("/", function(req, res) {
+  var userAgent = req.headers["user-agent"] || "none";
+
   if (req.accepts("html")) {
-    res.render("index", { ip: req.ip });
+    res.render("index", { userAgent: userAgent });
   } else {
     res.type("text");
-    res.send(req.ip);
+    res.send(userAgent);
   }
 });
 
