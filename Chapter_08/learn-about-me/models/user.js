@@ -8,13 +8,12 @@ var userSchema = mongoose.Schema({
   password: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
   displayName: String,
-  bio: String,
+  bio: String
 });
 
 var noop = function() {};
 
 userSchema.pre("save", function(done) {
-
   var user = this;
 
   if (!user.isModified("password")) {
@@ -29,7 +28,6 @@ userSchema.pre("save", function(done) {
       done();
     });
   });
-
 });
 
 userSchema.methods.checkPassword = function(guess, done) {
