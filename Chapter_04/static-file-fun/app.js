@@ -1,18 +1,19 @@
-var app =require('express')();
-var path=require('path');
-var fs= require('fs');
+var express = require("express");
+var morgan = require("morgan");
+var path = require("path");
 
-app.use(function(req,res,next) {
-  var filePath = path.join(__dirname,"static", req.url);
-  console.log(filePath);
-  fs.exists(filePath, function(exists) {
-    if (exists) {
-      res.sendFile(filePath);
-    } else {
-      next();
-    }
-  });
+var app = express();
 
+app.use(morgan("short"));
+
+var staticPath = path.join(__dirname, "static");
+app.use(express.static(staticPath));
+
+app.use(function(req, res) {
+  res.status(404);
+  res.send("File not found!");
 });
 
-app.listen(3000,function() { console.log('app started');});
+app.listen(3000, function() {
+  console.log("App started on port 3000");
+});

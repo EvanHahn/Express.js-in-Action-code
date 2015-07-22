@@ -4,6 +4,7 @@
     "start": "node app"
   },
   "dependencies": {
-    "express": "^5.0.0-alpha.2"
+    "express": "^5.0.0-alpha.2",
+    "morgan": "^1.6.1"
   }
 }
