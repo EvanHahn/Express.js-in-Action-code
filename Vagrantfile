@@ -1,5 +1,9 @@
 $script = <<SCRIPT
 
+# Update everything
+sudo apt-get update
+sudo apt-get upgrade -y
+
 # Install Node dependencies
 sudo apt-get install build-essential libssl-dev -y
 
