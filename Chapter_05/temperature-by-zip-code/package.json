@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "ejs": "^2.3.1",
-    "express": "^4.12.4",
+    "express": "5.0.0-alpha.2",
     "forecastio": "^0.2.0",
     "zippity-do-dah": "0.0.x"
   }
