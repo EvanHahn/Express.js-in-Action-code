@@ -5,7 +5,7 @@
     "production": "forever app.js"
   },
   "dependencies": {
-    "express": "^4.10.5",
+    "express": "5.0.0-alpha.2",
     "forever": "^0.13.0"
   },
   "engines": {
