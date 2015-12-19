@@ -9,6 +9,6 @@
     "forever": "^0.13.0"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "4.2.x"
   }
 }
