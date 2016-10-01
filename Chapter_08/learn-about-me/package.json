@@ -12,7 +12,7 @@
     "ejs": "^1.0.0",
     "express": "5.0.0-alpha.2",
     "express-session": "^1.7.6",
-    "mongoose": "^3.8.15",
+    "mongoose": "^4.0.0",
     "passport": "^0.2.0",
     "passport-local": "^1.0.0"
   }
