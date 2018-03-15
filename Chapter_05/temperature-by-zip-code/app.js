@@ -1,10 +1,16 @@
 var path = require("path");
 var express = require("express");
 var zipdb = require("zippity-do-dah");
-var ForecastIo = require("forecastio");
+var DarkSky = require('forecast.io');
+//https://www.npmjs.com/package/forecast.io
 
 var app = express();
-var weather = new ForecastIo("YOUR FORECAST.IO API KEY HERE");
+
+var options = {
+  APIKey: "pasteYourDarksky.netSecretApiKeyHere",
+  timeout: 1000
+},
+darksky = new DarkSky(options);
 
 app.use(express.static(path.resolve(__dirname, "public")));
 
@@ -25,13 +31,9 @@ app.get(/^\/(\d{5})$/, function(req, res, next) {
 
   var latitude = location.latitude;
   var longitude = location.longitude;
-
-  weather.forecast(latitude, longitude, function(err, data) {
-    if (err) {
-      next();
-      return;
-    }
-
+  
+  darksky.get(latitude, longitude, function (err, result, data) {
+    if (err) throw err;
     res.json({
       zipcode: zipcode,
       temperature: data.currently.temperature
