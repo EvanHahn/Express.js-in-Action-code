@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "mustache": "^2.3.0"
+  }
+}
