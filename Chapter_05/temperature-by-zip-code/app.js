@@ -4,7 +4,7 @@ var zipdb = require("zippity-do-dah");
 var ForecastIo = require("forecastio");
 
 var app = express();
-var weather = new ForecastIo("YOUR FORECAST.IO API KEY HERE");
+var weather = new ForecastIo("YOUR FORECAST.IO API KEY OR DARKSKY.NET API KEY HERE");
 
 app.use(express.static(path.resolve(__dirname, "public")));
 
