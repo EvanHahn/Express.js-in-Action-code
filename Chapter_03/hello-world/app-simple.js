@@ -4,7 +4,7 @@ var http = require("http");
 var app = express();
 
 app.use(function(request, response) {
-  response.writeHead(200, { "Content-Type": "text/plain" });
+  console.log("In comes a request to: " + request.url);
   response.end("Hello, World!");
 });
 

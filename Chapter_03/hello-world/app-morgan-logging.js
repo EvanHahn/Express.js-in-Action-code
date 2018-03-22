@@ -1,15 +1,14 @@
 var express = require("express");
-var path = require("path");
+var logger = require("morgan");
 var http = require("http");
 
 var app = express();
 
-var publicPath = path.resolve(__dirname, "public");
-app.use(express.static(publicPath));
+app.use(logger("short"));
 
 app.use(function(request, response) {
   response.writeHead(200, { "Content-Type": "text/plain" });
-  response.end("Looks like you didn't find a static file.");
+  response.end("Hello, World!");
 });
 
 http.createServer(app).listen(3000);
