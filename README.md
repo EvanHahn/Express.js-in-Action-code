@@ -7,3 +7,5 @@ vagrant up   # to start the virtual machine
 vagrant ssh  # to SSH into the virtual machine
 cd /vagrant  # to get to the code
 ```
+
+Note that many of the dependencies in this project are out of date, as the book is now several years old. Please upgrade to newer versions if using this code for real!
